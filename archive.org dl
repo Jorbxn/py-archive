@@ -1,0 +1,22 @@
+# chatgpt written
+
+
+import requests
+
+# URL of the PDF file on archive.org
+pdf_url = "https://ia801906.us.archive.org/8/items/my-system-2020/My%20System.pdf"
+
+# Send a GET request to download the PDF
+response = requests.get(pdf_url)
+
+# Check if the request was successful
+if response.status_code == 200:
+    # Specify the filename for saving the PDF
+    filename = "My System.pdf"
+    
+    # Save the PDF file
+    with open(filename, 'wb') as file:
+        file.write(response.content)
+    print("PDF downloaded successfully.")
+else:
+    print("Failed to download the PDF.")
